@@ -1,0 +1,7 @@
+## Interface: 20505
+## Title: ProwlSwap
+## Notes: Wechselt automatisch auf Aktionsleiste 2 wenn der Druide in Katzengestalt schleicht
+## Author: micha
+## Version: 1.0.0
+
+ProwlSwap.lua
