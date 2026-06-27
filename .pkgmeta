@@ -1,0 +1,10 @@
+package-as: DruidCatBarShift
+curse-id: 1589563
+
+ignore:
+  - .pkgmeta
+  - .gitignore
+  - .github
+  - CHANGELOG.md
+  - README.md
+  - LICENSE
