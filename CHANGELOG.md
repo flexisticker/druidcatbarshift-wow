@@ -2,16 +2,18 @@
 
 All notable changes to Druid CatBarShift will be documented here.
 
-## [0.2.0-alpha] - 2026-06-27
+## [0.2.0] - 2026-06-27
 
 ### Fixed
-- TOC referenced wrong filename (ProwlSwap.lua instead of DruidCatBarShift.lua) — caused LUA load error
+- TOC referenced wrong filename (ProwlSwap.lua instead of DruidCatBarShift.lua)
 
 ### Added
 - Config window in WoW style (`/dcbs`) to select action bar pages
 - SavedVariables (DruidCatBarShiftDB) — settings persist across sessions
 - IconTexture for addon list
-- Slash command `/dcbs` to open/close config
+- WoW Classic Era support (`_Vanilla.toc`, Interface 11508)
+- TBC Classic Anniversary explicit TOC (`_BCC.toc`, Interface 20505)
+- X-Curse-Project-ID, X-GitHub, X-License metadata in all TOC files
 
 ## [0.1.0-alpha] - 2026-06-27
 
@@ -20,4 +22,3 @@ All notable changes to Druid CatBarShift will be documented here.
 - Automatic action bar switch to page 2 on Cat Form + Stealth (Prowl)
 - Automatic switch back to page 1 when leaving Stealth or Cat Form
 - Supports English (`Prowl`) and German (`Schleichen`) WoW clients
-- Compatible with TBC Classic Anniversary Edition (Interface 20505)

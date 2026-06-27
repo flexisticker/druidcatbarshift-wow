@@ -1,4 +1,4 @@
-## Interface: 20505
+## Interface: 11508
 ## Title: Druid CatBarShift
 ## Notes: Automatic action bar switch when Druid enters Cat Form and Stealth (Prowl)
 ## Notes-deDE: Automatischer Aktionsleisten-Wechsel bei Katzengestalt + Schleichen
