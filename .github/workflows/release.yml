@@ -29,5 +29,5 @@ jobs:
       - name: Publish to CurseForge
         uses: BigWigsMods/packager@v2
         env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_API_KEY: ${{ secrets.CURSEFORGE }}
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
