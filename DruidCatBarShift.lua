@@ -1,4 +1,4 @@
-local ADDON_NAME = "ProwlSwap"
+﻿local ADDON_NAME = "DruidCatBarShift"
 
 -- Cat Form ist in TBC Gestalt-Index 3
 local CAT_FORM_INDEX = 3
@@ -40,7 +40,7 @@ local function UpdateBar()
     wasInStealthCat = inStealthCat
 end
 
-local frame = CreateFrame("Frame", "ProwlSwapFrame", UIParent)
+local frame = CreateFrame("Frame", "DruidCatBarShiftFrame", UIParent)
 frame:RegisterEvent("PLAYER_LOGIN")
 frame:RegisterEvent("UPDATE_SHAPESHIFT_FORM")
 frame:RegisterEvent("UNIT_AURA")
@@ -49,3 +49,4 @@ frame:SetScript("OnEvent", function(self, event, unit)
     if event == "UNIT_AURA" and unit ~= "player" then return end
     UpdateBar()
 end)
+
