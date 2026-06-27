@@ -1,8 +1,9 @@
-﻿## Interface: 20505
+## Interface: 20505
 ## Title: Druid CatBarShift
-## Notes: Wechselt automatisch auf Aktionsleiste 2 wenn der Druide in Katzengestalt schleicht
-## Author: micha
-## Version: 1.0.0
+## Notes: Automatischer Aktionsleisten-Wechsel fuer Katzengestalt + Schleichen
+## Author: MichaModus
+## Version: 0.2.0-alpha
+## IconTexture: Interface\AddOns\DruidCatBarShift\icon
+## SavedVariables: DruidCatBarShiftDB
 
-ProwlSwap.lua
-
+DruidCatBarShift.lua
