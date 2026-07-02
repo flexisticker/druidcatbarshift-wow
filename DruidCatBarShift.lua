@@ -141,7 +141,8 @@ end
 -- Events
 -- ============================================================
 
--- Verzögerter Check nach Spell-Cast (UNIT_AURA feuert bevor Prowl aus UnitBuff entfernt ist)
+-- Alle Bar-Wechsel verzögert ausführen (0.15s), da UnitBuff beim Event-Fire
+-- in TBC Classic noch den alten Stand zeigt (Prowl als aktiv obwohl bereits gebrochen).
 local pendingCheck = false
 local pendingTimer = 0
 
@@ -159,11 +160,7 @@ frame:SetScript("OnEvent", function(self, event, unit)
     end
     if event == "UNIT_AURA" and unit ~= "player" then return end
     if event == "UNIT_SPELLCAST_SUCCEEDED" and unit ~= "player" then return end
-    if event == "UNIT_SPELLCAST_SUCCEEDED" then
-        -- Spell könnte Schleichen brechen — nach kurzer Verzögerung prüfen
-        pendingCheck = true; pendingTimer = 0; return
-    end
-    UpdateBar()
+    pendingCheck = true; pendingTimer = 0
 end)
 
 frame:SetScript("OnUpdate", function(self, elapsed)
