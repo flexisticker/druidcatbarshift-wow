@@ -141,10 +141,15 @@ end
 -- Events
 -- ============================================================
 
+-- Verzögerter Check nach Spell-Cast (UNIT_AURA feuert bevor Prowl aus UnitBuff entfernt ist)
+local pendingCheck = false
+local pendingTimer = 0
+
 local frame = CreateFrame("Frame", "DruidCatBarShiftFrame", UIParent)
 frame:RegisterEvent("PLAYER_LOGIN")
 frame:RegisterEvent("UPDATE_SHAPESHIFT_FORM")
 frame:RegisterEvent("UNIT_AURA")
+frame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 
 frame:SetScript("OnEvent", function(self, event, unit)
     if event == "PLAYER_LOGIN" then
@@ -153,7 +158,21 @@ frame:SetScript("OnEvent", function(self, event, unit)
         return
     end
     if event == "UNIT_AURA" and unit ~= "player" then return end
+    if event == "UNIT_SPELLCAST_SUCCEEDED" and unit ~= "player" then return end
+    if event == "UNIT_SPELLCAST_SUCCEEDED" then
+        -- Spell könnte Schleichen brechen — nach kurzer Verzögerung prüfen
+        pendingCheck = true; pendingTimer = 0; return
+    end
     UpdateBar()
+end)
+
+frame:SetScript("OnUpdate", function(self, elapsed)
+    if not pendingCheck then return end
+    pendingTimer = pendingTimer + elapsed
+    if pendingTimer >= 0.15 then
+        pendingCheck = false; pendingTimer = 0
+        UpdateBar()
+    end
 end)
 
 SLASH_DRUIDCATBARSHIFT1 = "/dcbs"
