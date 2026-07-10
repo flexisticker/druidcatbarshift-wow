@@ -1,9 +1,9 @@
-﻿## Interface: 20505
+﻿## Interface: 20506
 ## Title: Druid CatBarShift
 ## Notes: Automatic action bar switch when Druid enters Cat Form and Stealth (Prowl)
 ## Notes-deDE: Automatischer Aktionsleisten-Wechsel bei Katzengestalt + Schleichen
 ## Author: MichaModus
-## Version: 0.2.2
+## Version: 0.2.3
 ## DefaultState: Enabled
 ## X-Curse-Project-ID: 1589563
 ## X-GitHub: https://github.com/flexisticker/druidcatbarshift-wow
