@@ -2,6 +2,19 @@
 
 All notable changes to Druid CatBarShift will be documented here.
 
+## [0.3.0] - 2026-07-10
+
+### Fixed
+- **Bar now switches back when breaking stealth by attacking (in combat!)** — the old approach used `ChangeActionBarPage()`, which Blizzard blocks during combat lockdown; attacking from Prowl enters combat instantly, so the switch back never happened
+
+### Changed
+- Complete rewrite of the switching mechanism: a **secure state driver** (`SecureHandlerStateTemplate` + `RegisterStateDriver "[stealth]"`) now reacts to the stealth state entirely in the secure environment, which is allowed in combat
+- The driver sets the `actionpage` attribute **directly on ActionButton1–12** — each attribute change fires the button's `OnAttributeChanged` → `UpdateAction`, so action AND icon update instantly, even in combat (setting the attribute on the parent bar frame has no effect, Blizzard refreshes buttons manually there)
+- Leaving stealth clears the attribute (nil) so Blizzard's own paging (including the cat/bear bonus bar) takes over again — no hardcoded page numbers; "Leiste ohne Schleichen" ≠ 1 is applied as an explicit override
+- Works identically on TBC Anniversary (2.5.6) and Classic Era (1.15)
+- Config changes re-apply the driver (deferred to end of combat if needed)
+- Removed the old event/timer machinery (UNIT_AURA polling with 0.15s delay) — no longer needed
+
 ## [0.2.3] - 2026-07-10
 
 ### Fixed
